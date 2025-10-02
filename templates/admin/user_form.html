@@ -1,0 +1,68 @@
+{% extends "admin/base.html" %}
+
+{% block admin_content %}
+<h2>{{ 'Edit' if user else 'Add New' }} User</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{ user.username if user else '' }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" {% if not user %}required{% endif %}>
+        {% if user %}
+        <small class="form-text text-muted">Leave blank to keep the current password.</small>
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" id="role" name="role">
+            <option value="user" {% if user and user.role == 'user' %}selected{% endif %}>User</option>
+            <option value="admin" {% if user and user.role == 'admin' %}selected{% endif %}>Admin</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <h4>Application Permissions</h4>
+        <div class="permissions-grid">
+            {% for app in applications %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="permissions" value="{{ app.id }}" id="app-{{ app.id }}"
+                    {% if 'all' in user.permissions or (user.permissions and app.id in user.permissions) %}checked{% endif %}>
+                <label class="form-check-label" for="app-{{ app.id }}">
+                    {{ app.name }}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="form-check mt-2">
+            <input class="form-check-input" type="checkbox" name="permissions" value="all" id="perm-all"
+                {% if 'all' in user.permissions %}checked{% endif %}>
+            <label class="form-check-label" for="perm-all">
+                <strong>Grant All Permissions</strong>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ 'Update' if user else 'Create' }} User</button>
+    <a href="{{ url_for('admin_users') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+<style>
+.permissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+.form-check-label {
+    margin-left: 5px;
+}
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+</style>
+{% endblock %}

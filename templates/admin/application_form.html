@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+
+{% block admin_content %}
+<h2>{{ 'Edit' if app else 'Add New' }} Application</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="name">Application Name</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ app.name if app else '' }}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="3" required>{{ app.description if app else '' }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="path">Path</label>
+        <input type="text" class="form-control" id="path" name="path" value="{{ app.path if app else '' }}" placeholder="e.g., /crm" required>
+        <small class="form-text text-muted">Must start with a forward slash (/).</small>
+    </div>
+
+    <div class="form-group">
+        <label for="icon">Icon</label>
+        <input type="text" class="form-control" id="icon" name="icon" value="{{ app.icon if app else '' }}" placeholder="e.g., user-tie">
+        <small class="form-text text-muted">Enter a FontAwesome icon name (e.g., 'tasks', 'chart-pie').</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ 'Update' if app else 'Create' }} Application</button>
+    <a href="{{ url_for('admin_applications') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
