@@ -36,7 +36,21 @@ Bu proje, harici bir framework kullanılmadan, saf PHP ile oluşturulmuştur.
 
 Bu projenin dosyalarını web sunucunuzun kök dizinine (örn: `/var/www/html` veya `htdocs`) kopyalayın.
 
-### 3. Ortam Değişkenini (Environment Variable) Ayarlama
+### 3. Proje Yapılandırması
+
+#### a) Alt Dizin Yapılandırması (BASE_URL)
+
+Projenin temel yapılandırma dosyası `core/config.php`'dir. Eğer projeyi bir alt dizinde (örneğin, `http://siteniz.com/portal`) çalıştırıyorsanız, bu dosyayı açıp `BASE_URL` sabitini kendi dizininize göre düzenlemeniz gerekir:
+
+```php
+// Örnek: /portal dizini için
+define('BASE_URL', '/portal');
+
+// Örnek: Ana dizin için
+// define('BASE_URL', '');
+```
+
+#### b) Ortam Değişkenini (Environment Variable) Ayarlama
 
 Uygulamanın en kritik güvenlik adımı, şifreleme anahtarını bir ortam değişkeni olarak ayarlamaktır.
 

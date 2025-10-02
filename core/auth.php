@@ -1,5 +1,8 @@
 <?php
 
+// Include the base configuration first
+require_once __DIR__ . '/config.php';
+
 // Start session on all pages that include this file
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -28,7 +31,7 @@ function is_admin() {
  */
 function require_login() {
     if (!is_logged_in()) {
-        header('Location: /login.php');
+        header('Location: ' . BASE_URL . '/login.php');
         exit();
     }
 }
@@ -39,7 +42,7 @@ function require_login() {
 function require_admin() {
     if (!is_admin()) {
         // Redirect to a non-admin page, e.g., the main dashboard
-        header('Location: /index.php');
+        header('Location: ' . BASE_URL . '/index.php');
         exit();
     }
 }

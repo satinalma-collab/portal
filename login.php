@@ -4,7 +4,7 @@ require_once __DIR__ . '/_header.php';
 
 // If user is already logged in, redirect to homepage
 if (is_logged_in()) {
-    header('Location: /index.php');
+    header('Location: ' . BASE_URL . '/index.php');
     exit();
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($username) || empty($password)) {
         set_flash_message('Username and password are required.');
-        header('Location: login.php');
+        header('Location: ' . BASE_URL . '/login.php');
         exit();
     }
 
@@ -50,12 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              set_flash_message('Login successful. IMPORTANT: Please change your default admin password immediately!', 'warning');
         }
 
-        header('Location: /index.php');
+        header('Location: ' . BASE_URL . '/index.php');
         exit();
     } else {
         // --- Login Failed ---
         set_flash_message('Invalid username or password.');
-        header('Location: login.php');
+        header('Location: ' . BASE_URL . '/login.php');
         exit();
     }
 }

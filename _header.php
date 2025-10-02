@@ -20,13 +20,13 @@ $csrf_token = generate_csrf_token();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/style.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/index.php">
+        <a class="navbar-brand" href="<?= BASE_URL ?>/index.php">
             <i class="fas fa-shield-alt"></i> PortalCore
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
@@ -42,21 +42,21 @@ $csrf_token = generate_csrf_token();
                     ?>
                     <?php foreach ($menus as $menu): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?= e($menu['path']) ?>"><?= e($menu['title']) ?></a>
+                            <a class="nav-link" href="<?= e(BASE_URL . $menu['path']) ?>"><?= e($menu['title']) ?></a>
                         </li>
                     <?php endforeach; ?>
 
                     <?php if (is_admin()): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/index.php"><i class="fas fa-cogs"></i> Admin Panel</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>/admin/index.php"><i class="fas fa-cogs"></i> Admin Panel</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <a class="nav-link" href="<?= BASE_URL ?>/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login.php">Login</a>
+                        <a class="nav-link" href="<?= BASE_URL ?>/login.php">Login</a>
                     </li>
                 <?php endif; ?>
             </ul>
