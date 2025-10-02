@@ -1,118 +1,83 @@
-# PortalCore: Encrypted JSON-Based Dynamic Web Portal
+# PortalCore PHP
 
-PortalCore is a dynamic and modular web portal that uses a unique data storage approach: instead of a traditional database, it stores all its data in a single, securely encrypted JSON file on the server. The system features a user-facing portal that displays applications based on permissions and a comprehensive admin panel for managing the entire system.
+**PortalCore PHP**, geleneksel bir veritabanı kullanmak yerine tüm verilerini sunucuda şifrelenmiş tek bir JSON dosyasında saklayan, PHP tabanlı dinamik bir web portalıdır. Sistem, kullanıcıların yetkilerine göre farklı uygulamalara erişebileceği bir ana sayfa ve tüm sistemin yönetileceği kapsamlı bir yönetici paneli içerir.
 
-## Features
+Bu proje, harici bir framework kullanılmadan, saf PHP ile oluşturulmuştur.
 
--   **Database-Free:** All system data (users, applications, menus) is stored in `data.json.enc`.
--   **Secure by Design:**
-    -   AES-256 encryption for the data file.
-    -   `bcrypt` for hashing user passwords.
-    -   Session-based authentication.
--   **Dynamic User Portal:** Users see a personalized dashboard of applications they are authorized to access.
--   **Comprehensive Admin Panel:**
-    -   **User Management:** Full CRUD (Create, Read, Update, Delete) for users.
-    -   **Permission Management:** Assign application access to users via a simple checkbox interface.
-    -   **Application Management:** Full CRUD for applications (the cards shown on the user dashboard).
-    -   **Menu Management:** Full CRUD for the main navigation menu items.
+## Özellikler
 
-## Technologies Used
+-   **Veritabanı Yok:** Tüm sistem verileri (kullanıcılar, uygulamalar, menüler) `data/data.json.enc` dosyasında saklanır.
+-   **Güçlü Şifreleme:** `openssl` (AES-256-CBC) kütüphanesi ile veri dosyası tamamen şifrelenir.
+-   **Güvenli Parola Saklama:** Kullanıcı parolaları PHP'nin standart `password_hash()` ve `password_verify()` fonksiyonları ile güvenli bir şekilde hash'lenir.
+-   **Dinamik Kullanıcı Portalı:** Kullanıcılar, kendilerine atanan yetkilere göre uygulama kartlarını görür.
+-   **Kapsamlı Yönetici Paneli:**
+    -   **Kullanıcı Yönetimi:** Kullanıcı ekleme, düzenleme, silme ve yetkilendirme.
+    -   **Uygulama Yönetimi:** Portalda gösterilecek uygulamaları yönetme (CRUD).
+    -   **Menü Yönetimi:** Ana navigasyon menüsünü yönetme (CRUD).
+-   **Güvenlik Odaklı:** CSRF tokenları ile form güvenliği ve `htmlspecialchars` ile XSS koruması sağlanmıştır.
 
--   **Backend:** Python with Flask
--   **Frontend:** Server-Side Rendered HTML with Jinja2 templates
--   **Encryption:** `cryptography` library (for AES-256)
--   **Password Hashing:** `bcrypt` library
+## Teknolojiler
 
----
-
-## Setup and Installation
-
-### 1. Prerequisites
-
--   Python 3.6+
--   `pip` for package management
-
-### 2. Clone the Repository
-
-```bash
-git clone <repository_url>
-cd PortalCore
-```
-
-### 3. Set Up a Virtual Environment (Recommended)
-
-**On macOS/Linux:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
-**On Windows:**
-```bash
-python -m venv venv
-.\venv\Scripts\activate
-```
-
-### 4. Install Dependencies
-
-Install all the required Python packages using the `requirements.txt` file.
-
-```bash
-pip install -r requirements.txt
-```
-
-### 5. Configure Environment Variables
-
-This is the most critical step for securing your application. PortalCore requires two environment variables.
-
--   `PORTAL_CORE_SECRET_KEY`: A strong, unique secret key used to encrypt and decrypt the `data.json.enc` file.
--   `FLASK_SECRET_KEY`: A secret key used by Flask to sign user sessions.
-
-**On macOS/Linux:**
-You can set them in your shell for the current session:
-```bash
-export PORTAL_CORE_SECRET_KEY='your-very-strong-and-unique-encryption-key'
-export FLASK_SECRET_KEY='your-separate-flask-session-key'
-```
-For a more permanent solution, add these lines to your `.bashrc`, `.zshrc`, or shell profile.
-
-**On Windows:**
-```powershell
-$env:PORTAL_CORE_SECRET_KEY="your-very-strong-and-unique-encryption-key"
-$env:FLASK_SECRET_KEY="your-separate-flask-session-key"
-```
-
-> **Warning:** Do not use weak keys or hardcode them in the application. The security of your data file depends entirely on the strength and secrecy of `PORTAL_CORE_SECRET_KEY`.
+-   **Backend:** Saf PHP (7.4 veya üstü)
+-   **Frontend:** Sunucu taraflı oluşturulmuş HTML, Bootstrap 5, FontAwesome ve Vanilla JavaScript.
+-   **Şifreleme:** `openssl` PHP eklentisi.
 
 ---
 
-## How to Run the Application
+## Kurulum ve Çalıştırma
 
-### 1. Generate the Initial Encrypted Data File
+### 1. Gereksinimler
 
-The first time you run the application, you need to generate the `data.json.enc` file. This is done by running the `encryption_manager.py` script directly.
+-   Bir web sunucusu (Apache, Nginx vb.)
+-   PHP 7.4 veya daha yeni bir sürüm.
+-   PHP `openssl` eklentisinin aktif olması. (Genellikle varsayılan olarak aktiftir, `php.ini` dosyanızdan kontrol edebilirsiniz.)
 
-```bash
-python modules/encryption_manager.py
+### 2. Proje Dosyalarını Sunucuya Yükleme
+
+Bu projenin dosyalarını web sunucunuzun kök dizinine (örn: `/var/www/html` veya `htdocs`) kopyalayın.
+
+### 3. Ortam Değişkenini (Environment Variable) Ayarlama
+
+Uygulamanın en kritik güvenlik adımı, şifreleme anahtarını bir ortam değişkeni olarak ayarlamaktır.
+
+-   **`PORTAL_CORE_SECRET_KEY`**: Bu anahtar, `data.json.enc` dosyasını şifrelemek ve deşifre etmek için kullanılır. **Güçlü, benzersiz ve gizli bir anahtar olmalıdır.**
+
+**Apache için:**
+`.htaccess` veya sanal sunucu yapılandırma dosyanıza (`httpd.conf` veya `sites-available/your-site.conf`) şu satırı ekleyin:
+```apache
+SetEnv PORTAL_CORE_SECRET_KEY "sizin-cok-guclu-ve-benzersiz-anahtariniz-buraya"
 ```
-You should see a message: `Initial data created and saved to data.json.enc`. This file contains the default 'admin' user and sample applications.
+Değişiklik sonrası Apache'yi yeniden başlatmayı unutmayın.
 
-### 2. Start the Flask Server
+**Nginx için:**
+`nginx.conf` veya sunucu bloğu yapılandırmanızdaki `location ~ \.php$` bloğuna şu parametreyi ekleyin:
+```nginx
+fastcgi_param PORTAL_CORE_SECRET_KEY "sizin-cok-guclu-ve-benzersiz-anahtariniz-buraya";
+```
+Değişiklik sonrası Nginx'i yeniden başlatmayı unutmayın.
 
-Now, you can run the main application.
+### 4. Kurulum Betiğini Çalıştırma
 
+Projenin ilk veri dosyasını oluşturmak için tarayıcınızdan veya komut satırından `install.php` betiğini bir kez çalıştırın.
+
+**Tarayıcıdan:**
+`http://siteniz.com/install.php` adresine gidin.
+
+**Komut Satırından:**
 ```bash
-python app.py
+php install.php
 ```
 
-The application will start in debug mode and be accessible at:
-**http://127.0.0.1:5001**
+Başarılı bir kurulum sonrası ekranda bir onay mesajı göreceksiniz.
 
-### 3. Login
+> **ÇOK ÖNEMLİ:** Kurulumu tamamladıktan sonra güvenlik nedeniyle **`install.php` dosyasını sunucudan mutlaka silin!**
 
--   Navigate to `http://127.0.0.1:5001`. You will be redirected to the login page.
--   **Default Admin Credentials:**
-    -   **Username:** `admin`
-    -   **Password:** `admin`
+### 5. Uygulamayı Kullanma
 
-> **Security Note:** Upon your first login as `admin`, you will see a warning message prompting you to change the default password. Please do so immediately via the **Admin Panel -> User Management**.
+Artık portalınız hazır! `http://siteniz.com/` adresine giderek uygulamayı kullanmaya başlayabilirsiniz.
+
+**Varsayılan Admin Bilgileri:**
+-   **Kullanıcı Adı:** `admin`
+-   **Parola:** `admin`
+
+**Güvenlik Uyarısı:** İlk girişinizde, varsayılan `admin` parolasını Yönetici Paneli'nden hemen değiştirmeniz şiddetle tavsiye edilir. Proje, bu konuda sizi uyaracaktır.
