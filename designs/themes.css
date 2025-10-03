@@ -1,0 +1,863 @@
+/* =================================================================
+   Theme 1: Zenith Light
+   Minimalist, clean, and airy light theme.
+================================================================= */
+.theme-zenith-light {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f7f9fc;
+    --bg-tertiary: #ffffff;
+    --text-primary: #1a202c;
+    --text-secondary: #718096;
+    --border-color: #e2e8f0;
+    --accent-primary: #3498db;
+    --accent-primary-hover: #2980b9;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+
+    /* Chart specific colors */
+    --chart-primary-color: #3498db;
+    --chart-secondary-color: #8e44ad;
+    --chart-grid-color: #e2e8f0;
+    --chart-text-color: #1a202c;
+}
+
+.theme-zenith-light .sidebar {
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+}
+
+.theme-zenith-light .sidebar-header h2 {
+    color: var(--text-primary);
+}
+
+.theme-zenith-light .sidebar-nav a {
+    color: var(--text-secondary);
+}
+
+.theme-zenith-light .sidebar-nav a:hover,
+.theme-zenith-light .sidebar-nav li.active a {
+    background-color: var(--bg-secondary);
+    color: var(--accent-primary);
+}
+
+.theme-zenith-light .main-content {
+    background-color: var(--bg-secondary);
+}
+
+.theme-zenith-light .header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-zenith-light .header-search input {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.theme-zenith-light .header-search input::placeholder {
+    color: var(--text-secondary);
+}
+
+.theme-zenith-light .header-search input:focus {
+    box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.theme-zenith-light .header-user span {
+    color: var(--text-primary);
+}
+
+.theme-zenith-light .card,
+.theme-zenith-light .chart-card,
+.theme-zenith-light .table-container {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
+}
+
+.theme-zenith-light .card h3,
+.theme-zenith-light .chart-card h3,
+.theme-zenith-light .table-container h3 {
+    color: var(--text-secondary);
+}
+
+.theme-zenith-light .card p {
+    color: var(--text-primary);
+}
+
+.theme-zenith-light table th {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.theme-zenith-light table td {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-zenith-light .status.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.theme-zenith-light .status.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.theme-zenith-light .status.failed {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.theme-zenith-light .theme-selector {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.theme-zenith-light .theme-selector select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+/* =================================================================
+   Theme 4: Soft Clay
+   Neumorphism style with soft shadows and a tactile feel.
+================================================================= */
+.theme-soft-clay {
+    --bg-primary: #e0e5ec;
+    --text-primary: #5f6775;
+    --text-secondary: #8a93a2;
+    --accent-primary: #3498db;
+    --neumorph-shadow-light: rgba(255, 255, 255, 0.7);
+    --neumorph-shadow-dark: rgba(163, 177, 198, 0.6);
+
+    /* Chart specific colors */
+    --chart-primary-color: #3498db;
+    --chart-secondary-color: #9b59b6;
+    --chart-grid-color: #d1d9e6;
+    --chart-text-color: #5f6775;
+}
+
+.theme-soft-clay body {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+.theme-soft-clay .sidebar,
+.theme-soft-clay .main-content {
+    background-color: var(--bg-primary);
+}
+
+.theme-soft-clay .sidebar {
+    border-right: none;
+}
+
+.theme-soft-clay .sidebar-header h2 {
+    color: var(--text-primary);
+}
+
+.theme-soft-clay .sidebar-nav a {
+    color: var(--text-secondary);
+}
+
+.theme-soft-clay .sidebar-nav li a:hover,
+.theme-soft-clay .sidebar-nav li.active a {
+    color: var(--accent-primary);
+    background-color: var(--bg-primary);
+    box-shadow: inset 6px 6px 12px var(--neumorph-shadow-dark),
+                inset -6px -6px 12px var(--neumorph-shadow-light);
+}
+
+.theme-soft-clay .header {
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.theme-soft-clay .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 20px;
+    box-shadow: inset 6px 6px 12px var(--neumorph-shadow-dark),
+                inset -6px -6px 12px var(--neumorph-shadow-light);
+}
+
+.theme-soft-clay .header-search input::placeholder { color: var(--text-secondary); }
+.theme-soft-clay .header-search input:focus { box-shadow: 0 0 0 2px var(--accent-primary); }
+.theme-soft-clay .header-user span { color: var(--text-primary); }
+
+.theme-soft-clay .card,
+.theme-soft-clay .chart-card,
+.theme-soft-clay .table-container,
+.theme-soft-clay .theme-selector {
+    background-color: var(--bg-primary);
+    border-radius: 20px;
+    border: none;
+    box-shadow: 10px 10px 20px var(--neumorph-shadow-dark),
+                -10px -10px 20px var(--neumorph-shadow-light);
+}
+
+.theme-soft-clay .card h3, .theme-soft-clay .chart-card h3, .theme-soft-clay .table-container h3 { color: var(--text-secondary); }
+.theme-soft-clay .card p { color: var(--text-primary); }
+
+.theme-soft-clay table th {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--neumorph-shadow-dark);
+}
+
+.theme-soft-clay table td {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--neumorph-shadow-dark);
+}
+
+.theme-soft-clay .status.completed { background-color: #c8d5e3; color: #1e6b39; }
+.theme-soft-clay .status.pending { background-color: #c8d5e3; color: #856404; }
+.theme-soft-clay .status.failed { background-color: #c8d5e3; color: #721c24; }
+
+.theme-soft-clay .theme-selector select {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: none;
+    box-shadow: inset 4px 4px 8px var(--neumorph-shadow-dark),
+                inset -4px -4px 8px var(--neumorph-shadow-light);
+}
+
+/* =================================================================
+   Theme 5: Sunset Gradient
+   Vibrant and energetic with beautiful gradients.
+================================================================= */
+.theme-sunset-gradient {
+    --bg-primary: #1c1c1e;
+    --bg-secondary: #2c2c2e;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #444;
+    --accent-gradient: linear-gradient(135deg, #ff8c42, #ff3c83);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    /* Chart specific colors */
+    --chart-primary-color: #ff8c42;
+    --chart-secondary-color: #ff3c83;
+    --chart-grid-color: #444;
+    --chart-text-color: #fff;
+}
+
+.theme-sunset-gradient body {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+.theme-sunset-gradient .sidebar {
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+}
+.theme-sunset-gradient .sidebar-header h2 {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.theme-sunset-gradient .sidebar-nav a { color: var(--text-secondary); }
+.theme-sunset-gradient .sidebar-nav li.active a,
+.theme-sunset-gradient .sidebar-nav a:hover {
+    background: var(--accent-gradient);
+    color: var(--text-primary);
+}
+.theme-sunset-gradient .main-content { background-color: var(--bg-primary); }
+
+.theme-sunset-gradient .header {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+.theme-sunset-gradient .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.theme-sunset-gradient .header-search input:focus { border-image: var(--accent-gradient) 1; }
+.theme-sunset-gradient .header-user span { color: var(--text-primary); }
+
+.theme-sunset-gradient .card {
+    background: var(--bg-secondary);
+    border: 1px solid transparent;
+    border-image: var(--accent-gradient) 1;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+.theme-sunset-gradient .chart-card,
+.theme-sunset-gradient .table-container,
+.theme-sunset-gradient .theme-selector {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.theme-sunset-gradient .card h3, .theme-sunset-gradient .chart-card h3, .theme-sunset-gradient .table-container h3 { color: var(--text-secondary); }
+.theme-sunset-gradient .card p {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.theme-sunset-gradient table th { color: var(--text-primary); border-bottom: 2px solid var(--border-color); }
+.theme-sunset-gradient table td { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+
+.theme-sunset-gradient .status { color: #fff; }
+.theme-sunset-gradient .status.completed { background-color: #28a745; }
+.theme-sunset-gradient .status.pending { background-color: #ffc107; }
+.theme-sunset-gradient .status.failed { background-color: #dc3545; }
+.theme-sunset-gradient .theme-selector select { background-color: var(--bg-primary); color: var(--text-primary); border-color: var(--border-color); }
+
+/* =================================================================
+   Theme 6: Corporate Blue
+   Clean, sharp, and professional.
+================================================================= */
+.theme-corporate-blue {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f4f8;
+    --text-primary: #102a43;
+    --text-secondary: #627d98;
+    --border-color: #d9e2ec;
+    --accent-primary: #007bff;
+    --accent-primary-hover: #0056b3;
+    --shadow-color: rgba(0, 0, 0, 0.07);
+
+    /* Chart specific colors */
+    --chart-primary-color: #007bff;
+    --chart-secondary-color: #6c757d;
+    --chart-grid-color: #d9e2ec;
+    --chart-text-color: #102a43;
+}
+
+.theme-corporate-blue * { border-radius: 4px !important; }
+.theme-corporate-blue .sidebar-nav li a { border-radius: 4px !important; }
+.theme-corporate-blue body { background-color: var(--bg-secondary); color: var(--text-primary); }
+
+.theme-corporate-blue .sidebar {
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+}
+.theme-corporate-blue .sidebar-header h2 { color: var(--accent-primary); }
+.theme-corporate-blue .sidebar-nav a { color: var(--text-secondary); }
+.theme-corporate-blue .sidebar-nav li.active a,
+.theme-corporate-blue .sidebar-nav a:hover {
+    background-color: var(--accent-primary);
+    color: #fff;
+}
+.theme-corporate-blue .main-content { background-color: var(--bg-secondary); }
+
+.theme-corporate-blue .header {
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color);
+}
+.theme-corporate-blue .header-search input {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.theme-corporate-blue .header-search input:focus { box-shadow: 0 0 0 2px var(--accent-primary); }
+.theme-corporate-blue .header-user span { color: var(--text-primary); }
+.theme-corporate-blue .header-user img { border-radius: 50% !important; }
+
+.theme-corporate-blue .card,
+.theme-corporate-blue .chart-card,
+.theme-corporate-blue .table-container,
+.theme-corporate-blue .theme-selector {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+.theme-corporate-blue .card h3, .theme-corporate-blue .chart-card h3, .theme-corporate-blue .table-container h3 { color: var(--text-secondary); }
+.theme-corporate-blue .card p { color: var(--accent-primary); }
+.theme-corporate-blue table th { color: var(--text-primary); border-bottom: 2px solid var(--border-color); }
+.theme-corporate-blue table td { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+
+.theme-corporate-blue .status { border-radius: 12px !important; }
+.theme-corporate-blue .status.completed { background-color: #d4edda; color: #155724; }
+.theme-corporate-blue .status.pending { background-color: #fff3cd; color: #856404; }
+.theme-corporate-blue .status.failed { background-color: #f8d7da; color: #721c24; }
+.theme-corporate-blue .theme-selector select { background-color: var(--bg-secondary); color: var(--text-primary); border-color: var(--border-color); }
+
+/* =================================================================
+   Theme 7: Cyberpunk Neon
+   Futuristic dark theme with bright neon accents.
+================================================================= */
+.theme-cyberpunk-neon {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #00ffde;
+    --text-secondary: #9e9e9e;
+    --border-color: #ff00ff;
+    --accent-primary: #00ffde;
+    --shadow-color: rgba(255, 0, 255, 0.5);
+
+    /* Chart specific colors */
+    --chart-primary-color: #00ffde;
+    --chart-secondary-color: #ff00ff;
+    --chart-grid-color: #333;
+    --chart-text-color: #00ffde;
+}
+.theme-cyberpunk-neon body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace;
+}
+.theme-cyberpunk-neon .sidebar { background-color: var(--bg-secondary); border-right: 1px solid var(--border-color); }
+.theme-cyberpunk-neon .sidebar-header h2 { color: var(--accent-primary); text-shadow: 0 0 5px var(--accent-primary); }
+.theme-cyberpunk-neon .sidebar-nav a { color: var(--text-secondary); }
+.theme-cyberpunk-neon .sidebar-nav li.active a,
+.theme-cyberpunk-neon .sidebar-nav a:hover {
+    color: var(--bg-secondary);
+    background-color: var(--accent-primary);
+    text-shadow: none;
+}
+.theme-cyberpunk-neon .main-content { background-color: var(--bg-primary); }
+.theme-cyberpunk-neon .header { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.theme-cyberpunk-neon .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-color);
+}
+.theme-cyberpunk-neon .header-search input::placeholder { color: var(--text-secondary); }
+.theme-cyberpunk-neon .header-search input:focus { box-shadow: 0 0 10px var(--shadow-color); }
+.theme-cyberpunk-neon .header-user span { color: var(--text-primary); }
+
+.theme-cyberpunk-neon .card,
+.theme-cyberpunk-neon .chart-card,
+.theme-cyberpunk-neon .table-container,
+.theme-cyberpunk-neon .theme-selector {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+.theme-cyberpunk-neon .card h3, .theme-cyberpunk-neon .chart-card h3, .theme-cyberpunk-neon .table-container h3 { color: var(--text-secondary); }
+.theme-cyberpunk-neon .card p { color: var(--accent-primary); }
+.theme-cyberpunk-neon table th { color: var(--accent-primary); border-bottom: 1px solid var(--border-color); }
+.theme-cyberpunk-neon table td { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+
+.theme-cyberpunk-neon .status { color: #000; }
+.theme-cyberpunk-neon .status.completed { background-color: #00ffde; }
+.theme-cyberpunk-neon .status.pending { background-color: #f0ff00; }
+.theme-cyberpunk-neon .status.failed { background-color: #ff00ff; }
+.theme-cyberpunk-neon .theme-selector select { background-color: var(--bg-primary); color: var(--text-primary); border-color: var(--border-color); }
+
+/* =================================================================
+   Theme 8: Eco-Friendly
+   Natural and calming theme with green and earth tones.
+================================================================= */
+.theme-eco-friendly {
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --text-primary: #3d405b;
+    --text-secondary: #818a91;
+    --border-color: #daddd8;
+    --accent-primary: #81b29a;
+    --accent-primary-hover: #6a947e;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+
+    /* Chart specific colors */
+    --chart-primary-color: #81b29a;
+    --chart-secondary-color: #e07a5f;
+    --chart-grid-color: #daddd8;
+    --chart-text-color: #3d405b;
+}
+
+.theme-eco-friendly body { background-color: var(--bg-primary); color: var(--text-primary); }
+.theme-eco-friendly .sidebar { background-color: var(--bg-secondary); border-right: 1px solid var(--border-color); }
+.theme-eco-friendly .sidebar-header h2 { color: var(--accent-primary); }
+.theme-eco-friendly .sidebar-nav a { color: var(--text-secondary); }
+.theme-eco-friendly .sidebar-nav li.active a,
+.theme-eco-friendly .sidebar-nav a:hover {
+    background-color: #eaf4f0;
+    color: var(--accent-primary);
+}
+.theme-eco-friendly .main-content { background-color: var(--bg-primary); }
+.theme-eco-friendly .header { background-color: var(--bg-secondary); border-bottom: 1px solid var(--border-color); }
+.theme-eco-friendly .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+.theme-eco-friendly .header-search input:focus { box-shadow: 0 0 0 2px var(--accent-primary); }
+.theme-eco-friendly .header-user span { color: var(--text-primary); }
+
+.theme-eco-friendly .card,
+.theme-eco-friendly .chart-card,
+.theme-eco-friendly .table-container,
+.theme-eco-friendly .theme-selector {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 8px var(--shadow-color);
+}
+.theme-eco-friendly .card h3, .theme-eco-friendly .chart-card h3, .theme-eco-friendly .table-container h3 { color: var(--text-secondary); }
+.theme-eco-friendly .card p { color: var(--text-primary); }
+.theme-eco-friendly table th { color: var(--text-primary); border-bottom: 2px solid var(--border-color); }
+.theme-eco-friendly table td { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+
+.theme-eco-friendly .status.completed { background-color: #d1e7dd; color: #0f5132; }
+.theme-eco-friendly .status.pending { background-color: #fff3cd; color: #664d03; }
+.theme-eco-friendly .status.failed { background-color: #f8d7da; color: #58151c; }
+.theme-eco-friendly .theme-selector select { background-color: var(--bg-primary); color: var(--text-primary); border-color: var(--border-color); }
+
+/* =================================================================
+   Theme 9: High-Contrast Focus
+   Accessibility-focused high-contrast theme.
+================================================================= */
+.theme-high-contrast-focus {
+    --bg-primary: #000000;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --border-color: #ffffff;
+    --accent-primary: #ffff00; /* Yellow */
+    --accent-primary-hover: #e6e600;
+
+    /* Chart specific colors */
+    --chart-primary-color: #ffff00;
+    --chart-secondary-color: #00ffff;
+    --chart-grid-color: #888;
+    --chart-text-color: #fff;
+}
+
+.theme-high-contrast-focus body { background-color: var(--bg-primary); color: var(--text-primary); }
+.theme-high-contrast-focus .sidebar { background-color: var(--bg-primary); border-right: 2px solid var(--border-color); }
+.theme-high-contrast-focus .sidebar-header h2 { color: var(--accent-primary); }
+.theme-high-contrast-focus .sidebar-nav a { color: var(--text-secondary); font-weight: bold; }
+.theme-high-contrast-focus .sidebar-nav li.active a,
+.theme-high-contrast-focus .sidebar-nav a:hover {
+    background-color: var(--accent-primary);
+    color: #000;
+}
+.theme-high-contrast-focus .main-content { background-color: var(--bg-primary); }
+.theme-high-contrast-focus .header { background-color: var(--bg-primary); border-bottom: 2px solid var(--border-color); }
+.theme-high-contrast-focus .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+.theme-high-contrast-focus .header-search input:focus { box-shadow: 0 0 0 2px var(--accent-primary); }
+.theme-high-contrast-focus .header-user span { color: var(--text-primary); }
+.theme-high-contrast-focus .card,
+.theme-high-contrast-focus .chart-card,
+.theme-high-contrast-focus .table-container,
+.theme-high-contrast-focus .theme-selector {
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+}
+.theme-high-contrast-focus .card h3, .theme-high-contrast-focus .chart-card h3, .theme-high-contrast-focus .table-container h3 { color: var(--text-secondary); }
+.theme-high-contrast-focus .card p { color: var(--accent-primary); }
+.theme-high-contrast-focus table th { color: var(--text-primary); border-bottom: 2px solid var(--border-color); }
+.theme-high-contrast-focus table td { color: var(--text-secondary); border-bottom: 1px solid var(--border-color); }
+
+.theme-high-contrast-focus .status { color: #000; font-weight: bold; }
+.theme-high-contrast-focus .status.completed { background-color: #00ff00; }
+.theme-high-contrast-focus .status.pending { background-color: #ffff00; }
+.theme-high-contrast-focus .status.failed { background-color: #ff0000; color: #fff; }
+.theme-high-contrast-focus .theme-selector select { background-color: var(--bg-primary); color: var(--text-primary); border: 2px solid var(--border-color); }
+
+/* =================================================================
+   Theme 10: Retro Modern
+   Funky, 80s/90s inspired theme with a modern twist.
+================================================================= */
+.theme-retro-modern {
+    --bg-primary: #fdf0d5;
+    --bg-secondary: #ffffff;
+    --text-primary: #003049;
+    --text-secondary: #669bbc;
+    --border-color: #003049;
+    --accent-primary: #d62828;
+    --accent-secondary: #f77f00;
+
+    /* Chart specific colors */
+    --chart-primary-color: #d62828;
+    --chart-secondary-color: #f77f00;
+    --chart-grid-color: #c1dbe8;
+    --chart-text-color: #003049;
+}
+
+.theme-retro-modern body { background-color: var(--bg-primary); color: var(--text-primary); font-family: 'Poppins', sans-serif; }
+.theme-retro-modern * { border-radius: 8px !important; }
+.theme-retro-modern .sidebar { background-color: var(--bg-secondary); border-right: 3px solid var(--border-color); }
+.theme-retro-modern .sidebar-header h2 { color: var(--text-primary); font-weight: 800; }
+.theme-retro-modern .sidebar-nav a { color: var(--text-secondary); font-weight: 600; }
+.theme-retro-modern .sidebar-nav li.active a,
+.theme-retro-modern .sidebar-nav a:hover {
+    background-color: var(--accent-secondary);
+    color: #fff;
+}
+.theme-retro-modern .main-content { background-color: var(--bg-primary); }
+.theme-retro-modern .header { background-color: var(--bg-secondary); border-bottom: 3px solid var(--border-color); }
+.theme-retro-modern .header-search input {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    font-weight: 500;
+}
+.theme-retro-modern .header-search input:focus { box-shadow: 0 0 0 2px var(--accent-primary); }
+.theme-retro-modern .header-user span { color: var(--text-primary); font-weight: 600; }
+.theme-retro-modern .header-user img { border-radius: 50% !important; border: 2px solid var(--border-color); }
+
+.theme-retro-modern .card,
+.theme-retro-modern .chart-card,
+.theme-retro-modern .table-container,
+.theme-retro-modern .theme-selector {
+    background-color: var(--bg-secondary);
+    border: 3px solid var(--border-color);
+    box-shadow: 8px 8px 0px var(--border-color);
+}
+.theme-retro-modern .card h3, .theme-retro-modern .chart-card h3, .theme-retro-modern .table-container h3 { color: var(--text-secondary); font-weight: 700; }
+.theme-retro-modern .card p { color: var(--accent-primary); font-weight: 800; }
+.theme-retro-modern table th { color: var(--text-primary); border-bottom: 3px solid var(--border-color); }
+.theme-retro-modern table td { color: var(--text-secondary); border-bottom: 2px dashed var(--border-color); }
+
+.theme-retro-modern .status { border-radius: 6px !important; color: #fff; font-weight: 700; }
+.theme-retro-modern .status.completed { background-color: #007f5f; }
+.theme-retro-modern .status.pending { background-color: #f77f00; }
+.theme-retro-modern .status.failed { background-color: #d62828; }
+.theme-retro-modern .theme-selector select { background-color: var(--bg-primary); color: var(--text-primary); border: 2px solid var(--border-color); font-weight: 600; }
+
+/* =================================================================
+   Theme 2: Midnight Cobalt
+   Professional and sleek dark theme.
+================================================================= */
+.theme-midnight-cobalt {
+    --bg-primary: #1a202c;
+    --bg-secondary: #2d3748;
+    --bg-tertiary: #4a5568;
+    --text-primary: #edf2f7;
+    --text-secondary: #a0aec0;
+    --border-color: #4a5568;
+    --accent-primary: #38b2ac;
+    --accent-primary-hover: #319795;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+
+    /* Chart specific colors */
+    --chart-primary-color: #38b2ac;
+    --chart-secondary-color: #805ad5;
+    --chart-grid-color: #4a5568;
+    --chart-text-color: #edf2f7;
+}
+
+.theme-midnight-cobalt body {
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt .sidebar {
+    background-color: var(--bg-primary);
+    border-right: 1px solid var(--border-color);
+}
+
+.theme-midnight-cobalt .sidebar-header h2 {
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt .sidebar-nav a {
+    color: var(--text-secondary);
+}
+
+.theme-midnight-cobalt .sidebar-nav a:hover,
+.theme-midnight-cobalt .sidebar-nav li.active a {
+    background-color: var(--bg-secondary);
+    color: var(--accent-primary);
+}
+
+.theme-midnight-cobalt .main-content {
+    background-color: var(--bg-secondary);
+}
+
+.theme-midnight-cobalt .header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-midnight-cobalt .header-search input {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt .header-search input::placeholder {
+    color: var(--text-secondary);
+}
+
+.theme-midnight-cobalt .header-search input:focus {
+    box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.theme-midnight-cobalt .header-user span {
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt .card,
+.theme-midnight-cobalt .chart-card,
+.theme-midnight-cobalt .table-container {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px var(--shadow-color);
+}
+
+.theme-midnight-cobalt .card h3,
+.theme-midnight-cobalt .chart-card h3,
+.theme-midnight-cobalt .table-container h3 {
+    color: var(--text-secondary);
+}
+
+.theme-midnight-cobalt .card p {
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt table th {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.theme-midnight-cobalt table td {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-midnight-cobalt .status.completed {
+    background-color: #2f855a;
+    color: #c6f6d5;
+}
+
+.theme-midnight-cobalt .status.pending {
+    background-color: #b7791f;
+    color: #feebc8;
+}
+
+.theme-midnight-cobalt .status.failed {
+    background-color: #c53030;
+    color: #fed7d7;
+}
+
+.theme-midnight-cobalt .theme-selector {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.theme-midnight-cobalt .theme-selector select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+/* =================================================================
+   Theme 3: Crystal Clear
+   Glassmorphism effect with a vibrant background.
+================================================================= */
+.theme-crystal-clear {
+    --bg-primary: rgba(255, 255, 255, 0.15);
+    --bg-secondary: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --border-color: rgba(255, 255, 255, 0.25);
+    --accent-primary: #ff7eb9;
+    --accent-primary-hover: #ff63a8;
+
+    /* Chart specific colors */
+    --chart-primary-color: #ff7eb9;
+    --chart-secondary-color: #a777e3;
+    --chart-grid-color: rgba(255, 255, 255, 0.2);
+    --chart-text-color: #ffffff;
+}
+
+.theme-crystal-clear body {
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+}
+
+.theme-crystal-clear .sidebar,
+.theme-crystal-clear .header,
+.theme-crystal-clear .card,
+.theme-crystal-clear .chart-card,
+.theme-crystal-clear .table-container,
+.theme-crystal-clear .theme-selector {
+    background-color: var(--bg-primary);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.theme-crystal-clear .main-content {
+    background: transparent;
+}
+
+.theme-crystal-clear .sidebar {
+    border-right: 1px solid var(--border-color);
+}
+
+.theme-crystal-clear .sidebar-header h2 {
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.theme-crystal-clear .sidebar-nav a {
+    color: var(--text-secondary);
+}
+
+.theme-crystal-clear .sidebar-nav a:hover,
+.theme-crystal-clear .sidebar-nav li.active a {
+    background-color: var(--bg-secondary);
+    color: var(--accent-primary);
+}
+
+.theme-crystal-clear .header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-crystal-clear .header-search input {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.theme-crystal-clear .header-search input::placeholder {
+    color: var(--text-secondary);
+}
+
+.theme-crystal-clear .header-search input:focus {
+    box-shadow: 0 0 0 2px var(--accent-primary);
+}
+
+.theme-crystal-clear .header-user span {
+    color: var(--text-primary);
+}
+
+.theme-crystal-clear .card h3,
+.theme-crystal-clear .chart-card h3,
+.theme-crystal-clear .table-container h3 {
+    color: var(--text-secondary);
+}
+
+.theme-crystal-clear .card p {
+    color: var(--text-primary);
+}
+
+.theme-crystal-clear table th {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.theme-crystal-clear table td {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.theme-crystal-clear .status.completed {
+    background-color: rgba(45, 211, 111, 0.3);
+    color: #fff;
+}
+
+.theme-crystal-clear .status.pending {
+    background-color: rgba(255, 193, 7, 0.3);
+    color: #fff;
+}
+
+.theme-crystal-clear .status.failed {
+    background-color: rgba(255, 71, 87, 0.3);
+    color: #fff;
+}
+
+.theme-crystal-clear .theme-selector select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}

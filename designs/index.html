@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Admin Dashboard</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="themes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="theme-zenith-light">
+
+    <div class="theme-selector">
+        <label for="theme-switcher">Select a Theme:</label>
+        <select id="theme-switcher">
+            <option value="theme-zenith-light" selected>Zenith Light</option>
+            <option value="theme-midnight-cobalt">Midnight Cobalt</option>
+            <option value="theme-crystal-clear">Crystal Clear</option>
+            <option value="theme-soft-clay">Soft Clay</option>
+            <option value="theme-sunset-gradient">Sunset Gradient</option>
+            <option value="theme-corporate-blue">Corporate Blue</option>
+            <option value="theme-cyberpunk-neon">Cyberpunk Neon</option>
+            <option value="theme-eco-friendly">Eco-Friendly</option>
+            <option value="theme-high-contrast-focus">High-Contrast Focus</option>
+            <option value="theme-retro-modern">Retro Modern</option>
+        </select>
+    </div>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Portal</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Reports</a></li>
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-user">
+                    <span>Welcome, Admin</span>
+                    <img src="https://i.pravatar.cc/40" alt="User Avatar">
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="cards-container">
+                    <div class="card">
+                        <h3>Total Users</h3>
+                        <p>1,250</p>
+                    </div>
+                    <div class="card">
+                        <h3>Revenue</h3>
+                        <p>$48,600</p>
+                    </div>
+                    <div class="card">
+                        <h3>New Orders</h3>
+                        <p>320</p>
+                    </div>
+                    <div class="card">
+                        <h3>Pending Issues</h3>
+                        <p>15</p>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <h3>Sales Over Time</h3>
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>User Distribution</h3>
+                        <canvas id="userDistChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <h3>Recent Transactions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>User</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>$150.00</td>
+                                <td>2024-10-26</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>$200.50</td>
+                                <td>2024-10-25</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sam Wilson</td>
+                                <td>$99.99</td>
+                                <td>2024-10-25</td>
+                                <td><span class="status failed">Failed</span></td>
+                            </tr>
+                             <tr>
+                                <td>4</td>
+                                <td>Alice Johnson</td>
+                                <td>$500.00</td>
+                                <td>2024-10-24</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Theme switcher logic
+        const themeSwitcher = document.getElementById('theme-switcher');
+        themeSwitcher.addEventListener('change', function() {
+            document.body.className = '';
+            document.body.classList.add(this.value);
+            // Re-render charts to adapt to new theme colors
+            salesChart.destroy();
+            userDistChart.destroy();
+            renderCharts();
+        });
+
+        // Chart.js setup
+        let salesChart, userDistChart;
+
+        function renderCharts() {
+            const style = getComputedStyle(document.body);
+            const primaryColor = style.getPropertyValue('--chart-primary-color') || '#3498db';
+            const secondaryColor = style.getPropertyValue('--chart-secondary-color') || '#9b59b6';
+            const gridColor = style.getPropertyValue('--chart-grid-color') || 'rgba(0, 0, 0, 0.1)';
+            const textColor = style.getPropertyValue('--chart-text-color') || '#333';
+
+            const salesCtx = document.getElementById('salesChart').getContext('2d');
+            salesChart = new Chart(salesCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [12, 19, 3, 5, 2, 3],
+                        borderColor: primaryColor,
+                        backgroundColor: primaryColor.replace(')', ', 0.2)'),
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: gridColor },
+                            ticks: { color: textColor }
+                        },
+                        x: {
+                            grid: { color: gridColor },
+                            ticks: { color: textColor }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: textColor } }
+                    }
+                }
+            });
+
+            const userDistCtx = document.getElementById('userDistChart').getContext('2d');
+            userDistChart = new Chart(userDistCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['New', 'Returning', 'Inactive'],
+                    datasets: [{
+                        label: 'User Distribution',
+                        data: [300, 500, 100],
+                        backgroundColor: [primaryColor, secondaryColor, '#ecf0f1'],
+                        borderColor: 'transparent'
+                    }]
+                },
+                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: textColor }
+                        }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCharts);
+    </script>
+</body>
+</html>

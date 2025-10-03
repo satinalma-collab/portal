@@ -1,0 +1,212 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Layout */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    transition: background-color 0.3s, border-right 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s;
+}
+
+/* Theme Selector */
+.theme-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.theme-selector label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.theme-selector select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+/* Sidebar */
+.sidebar-header {
+    padding: 2rem;
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0 1.5rem;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    transition: background-color 0.3s, border-bottom 0.3s;
+}
+
+.header-search input {
+    width: 300px;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.2s;
+}
+
+.header-search input:focus {
+    outline: none;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+}
+
+.header-user span {
+    margin-right: 1rem;
+    font-weight: 500;
+}
+
+.header-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Content Body */
+.content-body {
+    padding: 2rem;
+    flex: 1;
+}
+
+/* Cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.card p {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Charts */
+.charts-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.chart-card h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Table */
+.table-container {
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.table-container h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    transition: background-color 0.3s, border-bottom 0.3s;
+}
+
+thead th {
+    font-weight: 600;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status {
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
